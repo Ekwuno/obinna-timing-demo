@@ -9,7 +9,7 @@ const BlogPost = ({data}) => {
             {
                 data.allMdx.edges.map(({node:blog})=>(
 
-                    <li>
+                    <li key= {blog.frontmatter.title}>
                         <article>
                             <h2>
                                 <Link to = {blog.slug}>{blog.frontmatter.title}</Link>

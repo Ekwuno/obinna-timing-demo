@@ -2,18 +2,23 @@ import React from "react";
 import Layout from "../../components/layout";
 import { graphql } from "gatsby";
 import { MDXRenderer } from "gatsby-plugin-mdx";
-// import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
+
+
 
 const BlogPosts = ({ data }) => {
+  const image = getImage(data.mdx.frontmatter.hero_image);
+  
   return (
-    <Layout>
+    <Layout pageTitle={data.mdx.frontmatter.title}>
+      <GatsbyImage image={image} alt={data.mdx.frontmatter.title} aria-hidden={true} />
       <MDXRenderer>{data.mdx.body}</MDXRenderer>
     </Layout>
   );
 };
 
 export const query = graphql`
-  query ($slug: String) {
+  query($slug: String) {
     mdx(slug: { eq: $slug }) {
       frontmatter {
         date(formatString: "MM DD YYYY")

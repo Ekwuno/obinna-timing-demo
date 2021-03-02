@@ -8,22 +8,25 @@
     color: rebeccapurple;
   }
   
-  .nav-links {
+  .navLinks {
     display: flex;
     list-style: none;
     padding-left: 0;
   }
   
-  .nav-links li {
+  .navLinks li {
     padding-right: 2rem;
     color: black;
   }
   
-  .nav-links a {
+  .navLinks a {
     color: black;
   }
   
-  .site-title {
+  .navLinks :hover {
+    color:pink;
+  }
+  .title {
     font-size: 3rem;
     color: gray;
     font-weight: 700;
